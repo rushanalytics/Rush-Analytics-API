@@ -8,33 +8,33 @@ $api = new SoapClient($wsdl);
 $api->response_timeout = 60000;
 
 
-$hash = 'xxxxxxxxxxxxxxxxxxxxxx'; // API code
-$name = 'test api top10 go 1';
+$hash = 'xxxxxxxxxxxxxxxxxxxxxx'; // Ваш 32х значный API ключ !!! ВВЕДИТЕ СВОЙ КЛЮЧ !!!
+$name = 'test api top10 go 1'; // Переменная отвечает за имя проекта
 
-// if google
+// Если поисковая система Google
 $provider = 1;
-// if yandex
+// Если поисковая система Yandex
 $provider = 0;
 
-$country = '.ru';
-$region =  ''; // if google -> empty
-$region =  213; // if yandex -> region number 213 for Moscow, 225 for Russia, ...
-$lang = 'ru';
-$newlogic = 1;
+$country = '.ru'; // Страна
+$region =  ''; // Регион для поисковой системы Google оставляем пустым
+$region =  213; // Регион для поисковой системы Yandex 213 Для Москвы, 225 for для России, ...
+$lang = 'ru';  // Язык
+$newlogic = 1; // Эксперт опция для сбора данных в Google
 
-// if google
+// в поисковой системе Google
 $params = array(
-	1, // Number of finded documents  
-	0, // Collect keywords 
+	1, // Количество найденных документов 
+	0, // Собрать ключевые слова
 );
 
 // if yandex
 $params = array(
-	0, // Number of finded documents 
-	0, // Collect keywords 
-	0, // Count Direct Ads 
-	1, // Region in result 
-	1 // Count extended snipets 
+	0, // Количество найденных документов  
+	0, // Собрать ключевые слова 
+	0, // Сбор количества объявлений в Яндекс Директ 
+	1, // Регион 
+	1 // Подсчитать расширенные сниппеты 
 );
 
 
@@ -42,7 +42,7 @@ $keywords = array('wilgood','wilbad');
 
 $test = $api->rushapi__create_top10_project($hash, $name, $keywords, $provider, $country, $region, $lang, $newlogic, $params);
 if(strpos($test,'ERR') !== false) {
-	// handle error
+	// Собирать ошибки
 }
 else {
 	$sessionid = $test;
