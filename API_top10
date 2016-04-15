@@ -1,0 +1,54 @@
+<?php
+
+include_once('nusoap.php');
+
+ini_set("soap.wsdl_cache_enabled", 0);
+$wsdl="http://www.rush-analytics.ru/api.php?wsdl";
+$api = new SoapClient($wsdl);
+$api->response_timeout = 60000;
+
+
+$hash = 'xxxxxxxxxxxxxxxxxxxxxx'; // API code
+$name = 'test api top10 go 1';
+
+// if google
+$provider = 1;
+// if yandex
+$provider = 0;
+
+$country = '.ru';
+$region =  ''; // if google -> empty
+$region =  213; // if yandex -> region number 213 for Moscow, 225 for Russia, ...
+$lang = 'ru';
+$newlogic = 1;
+
+// if google
+$params = array(
+	1, // Number of finded documents  
+	0, // Collect keywords 
+);
+
+// if yandex
+$params = array(
+	0, // Number of finded documents 
+	0, // Collect keywords 
+	0, // Count Direct Ads 
+	1, // Region in result 
+	1 // Count extended snipets 
+);
+
+
+$keywords = array('wilgood','wilbad');
+
+$test = $api->rushapi__create_top10_project($hash, $name, $keywords, $provider, $country, $region, $lang, $newlogic, $params);
+if(strpos($test,'ERR') !== false) {
+	// handle error
+}
+else {
+	$sessionid = $test;
+}
+
+$test = $api->rushapi__top10_project_status($hash,$sessionid);
+var_dump($test);
+
+?>	
