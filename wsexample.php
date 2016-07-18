@@ -24,6 +24,8 @@ $normal = 1; // keyword without adding additional characters (0/1)
 $quotationmark = 0; // "keyword" (0/1)
 $exclamation = 1; // "!keyword"
 $minwordstat = 1; // skip "keyword" and "!keyword" if keyword less than this value
+$swtype = 0; // Stopwords type: 0 - Word accordance, 1 - Letter accordance
+$altfreq = 1; // Consider word order [] (0/1)
 
 // array of strings - keywords you want to parse + stopwords
 $keywords = array('wilgood', 'Схема проезда');
