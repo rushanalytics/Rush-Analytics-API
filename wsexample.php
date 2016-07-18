@@ -42,7 +42,9 @@ $response = $api->rushapi__create_wordstat_project(
 		$exclamation,
 		$minwordstat,
 		$keywords,
-		$stopwords
+		$stopwords,
+		$swtype,
+		$altfreq
 	);
 
 
