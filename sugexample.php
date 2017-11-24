@@ -28,7 +28,7 @@ $space = 1; // parse keywords with space suffix "keyword "
 $enalpha = 1; // parse keywords with a-z suffix (english alphabet)
 $rualpha = 1; // parse keywords with a-ja suffix (russian alphabet)
 $numalpha = 1; // parse keywords with 0-9 suffix
-$swtype = 0;
+$swtype = 0; // Stopwords type: 0 - Word accordance, 1 - Letter accordance
 
 $youtube = 1; // new parameter -0/1
 $google_lang = 'en'; // google language
