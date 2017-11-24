@@ -28,6 +28,13 @@ $space = 1; // parse keywords with space suffix "keyword "
 $enalpha = 1; // parse keywords with a-z suffix (english alphabet)
 $rualpha = 1; // parse keywords with a-ja suffix (russian alphabet)
 $numalpha = 1; // parse keywords with 0-9 suffix
+$swtype = 0;
+
+$youtube = 1; // new parameter -0/1
+$google_lang = 'en'; // google language
+$youtube_country = '.com'; // youtube country
+$youtube_lang = 'en'; // youtube language
+
 
 // array of strings - keywords you want to parse + stopwords
 $keywords = array('wilgood', 'Схема проезда');
@@ -48,7 +55,12 @@ $response = $api->rushapi__create_suggest_project(
 		$rualpha,
 		$numalpha,
 		$keywords,
-		$stopwords
+		$stopwords,
+		$swtype,
+		$youtube,
+		$google_lang,
+		$youtube_country,
+		$youtube_lang	
 	);
 
 /* 
