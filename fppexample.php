@@ -23,10 +23,10 @@ $yaregions = array(
 	array('domain' => '.ua', 'regionid' => 145, 'regionlang' => 'ru'),
 );
 
-// array of google regions each has domain (.ru,.cz,.com,...), and language you want to parse
+// array of google regions each has domain (.ru,.cz,.com,...), region number, and language you want to parse
 $goregions = array(
-	array('domain' => '.ru', 'regionlang' => 'ru'),
-	array('domain' => '.cz', 'regionlang' => 'cs'),
+	array('domain' => '.ru', 'regionid' => 21250, regionlang' => 'ru'),
+	array('domain' => '.cz', 'regionid' => 21494, regionlang' => 'cs'),
 );
 
 $name = 'test api fpp';
