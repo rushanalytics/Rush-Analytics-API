@@ -34,6 +34,7 @@ $youtube = 1; // new parameter -0/1
 $google_lang = 'en'; // google language
 $youtube_country = '.com'; // youtube country
 $youtube_lang = 'en'; // youtube language
+$alpha_lang = 'en'; // alphabet used in keyword a-z
 
 
 // array of strings - keywords you want to parse + stopwords
@@ -60,7 +61,8 @@ $response = $api->rushapi__create_suggest_project(
 		$youtube,
 		$google_lang,
 		$youtube_country,
-		$youtube_lang	
+		$youtube_lang,
+		$alpha_lang
 	);
 
 /* 
