@@ -16,7 +16,7 @@ function curl_fn($url,$post_args=false) {
 
 $base_api_url = 'https://www.rush-analytics.ru/api/v2';
 
-$api_key = '1a69b79079183429a18cb875ae16bbb3';
+$api_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'; // your api key
 $keywords = array('wilgood');
 $name = 'test api v2 fpp';
 $url = 'wilgood.ru';
