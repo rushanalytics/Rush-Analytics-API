@@ -54,14 +54,23 @@ $post_args = array(
     'googleRegions' => $google_regions,
 );
 
+// url in format https://www.rush-analytics.ru/api/v2/create/fpp
 $curl_ret = curl_fn($base_api_url . '/create/fpp', $post_args);
 
 list($http_code,$json_response) = $curl_ret;
 $json_decoded_response = json_decode($json_response);
 
+
 // Project created
 if($http_code == 201) {
-    print 'Project created with id: ' . $json_decoded_response->id;
+	// to get status of project only post GET request with url in format https://www.rush-analytics.ru/api/v2/status/{type}/{id}?apikey={32char_api_key}
+    $curl_status_ret = curl_fn($base_api_url . '/status/' . $json_decoded_response->type . '/' . $json_decoded_response->id . '?apikey=' . $api_key);
+	list($http_code_status,$json_response_status) = $curl_status_ret;
+	$json_decoded_response_status = json_decode($json_response_status);
+	
+	print 'Project created with id: ' . $json_decoded_response->id . '<br>';
+	print 'Project status: ' . $json_decoded_response_status->status;
+	
 }
 // Bad input
 if($http_code == 400) {
