@@ -14,7 +14,7 @@ function curl_fn($url,$post_args=false) {
     return array($http_code,$response);
 }
 
-$base_api_url = 'www.rush-analytics.ru/api/v2';
+$base_api_url = 'https://www.rush-analytics.ru/api/v2';
 
 $api_key = '1a69b79079183429a18cb875ae16bbb3';
 $keywords = array('wilgood');
