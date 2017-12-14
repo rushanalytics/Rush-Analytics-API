@@ -6,7 +6,6 @@ function curl_fn($url,$post_args=false) {
     if($post_args) {
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($post_args));
-        //var_dump(json_encode($post_args));
     }    
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $response = curl_exec ($ch);    
