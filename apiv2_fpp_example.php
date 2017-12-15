@@ -14,7 +14,7 @@ function curl_fn($url,$post_args=false) {
     return array($http_code,$response);
 }
 
-$base_api_url = 'https://www.rush-analytics.ru/api/v2';
+$base_api_url = 'https://www.rush-analytics.ru/apiv2';
 
 $api_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'; // your api key
 $keywords = array('wilgood');
@@ -54,7 +54,7 @@ $post_args = array(
     'googleRegions' => $google_regions,
 );
 
-// url in format https://www.rush-analytics.ru/api/v2/create/fpp
+// url in format https://www.rush-analytics.ru/apiv2/create/fpp
 $curl_ret = curl_fn($base_api_url . '/create/fpp', $post_args);
 
 list($http_code,$json_response) = $curl_ret;
@@ -63,7 +63,7 @@ $json_decoded_response = json_decode($json_response);
 
 // Project created
 if($http_code == 201) {
-	// to get status of project only post GET request with url in format https://www.rush-analytics.ru/api/v2/status/{type}/{id}?apikey={32char_api_key}
+	// to get status of project only post GET request with url in format https://www.rush-analytics.ru/apiv2/status/{type}/{id}?apikey={32char_api_key}
     $curl_status_ret = curl_fn($base_api_url . '/status/' . $json_decoded_response->type . '/' . $json_decoded_response->id . '?apikey=' . $api_key);
 	list($http_code_status,$json_response_status) = $curl_status_ret;
 	$json_decoded_response_status = json_decode($json_response_status);
